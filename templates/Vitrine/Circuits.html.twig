@@ -1,0 +1,115 @@
+{% extends 'base-front.html.twig' %}
+{% block Content %}
+
+    <div class="head-search">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="search-route">
+                        <form method="post">
+                            <div class="location">
+                                <p>
+                                    <label><i class="fa fa-location-arrow"></i></label>
+                                    <input type="text" placeholder="Your location">
+                                </p>
+
+                                <p>
+                                    <label><i class="fa fa-location-arrow"></i></label>
+                                    <input type="text" placeholder="Going to">
+                                </p>
+                            </div>
+                            <div class="date-n-time">
+                                <p>
+                                    <label><i class="fa fa-calendar"></i></label>
+                                    <input id="datetimepicker1" type="text" >
+                                </p>
+                                <p>
+                                    <label><i class="fa fa-clock-o"></i></label>
+                                    <input id="datetimepicker2" type="text" >
+                                </p>
+                            </div>
+                            <button class="theme-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- top search head -->
+
+    <section>
+        <div class="space-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="heading text-left no-margin">
+                            <h5>Circuits </h5>
+                        </div>
+                        <div class="rides-list">
+
+                            <div class="rides-listing">
+                                <div class="rider-imag">
+                                    <img alt="" src="images/resources/rides-list-3.jpg">
+                                    <div class="rating">
+                                        <em>James K.</em>
+                                        <ul class="stars-rating">
+                                            <li><i class="fa fa-star checked"></i></li>
+                                            <li><i class="fa fa-star checked"></i></li>
+                                            <li><i class="fa fa-star checked"></i></li>
+                                            <li><i class="fa fa-star checked"></i></li>
+                                            <li><i class="fa fa-star checked"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="rides-meta">
+                                    <h4>Today at 13:40</h4>
+                                    <span>
+                                        	<i class="fa fa-location-arrow"></i>
+                                            <em>Bristol</em>
+                                            <em>Cambridge</em>
+                                        </span>
+                                    <p>Departure: Bristol</p>
+                                    <p>Arrival: Ely Cathedral, Cambridge</p>
+                                    <i class="fa fa-road" data-toggle="tooltip"  title="This ride goes on the freeway."></i>
+                                </div>
+                                <div class="price-tag">
+                                    <em>$20</em>
+                                    <div class="availablity">
+                                        <span class="avail"></span>
+                                        <span class="avail"></span>
+                                        <span class="avail"></span>
+                                        <span class="notavail"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="rides-search">
+
+                            <form method="post">
+                            <input type="text" placeholder="Nom Du Circuit" disabled>
+                            <div class="luggage">
+                                <input type="text" placeholder="Date de Reservation" >
+
+                            </div>
+                            <div class="luxury">
+                                <input type="text" placeholder="Nom Du Pilote" >
+                            </div>
+                            <div class="prefer">
+                                <input type="text" placeholder="Telephone" >
+                            </div>
+                            <a href="#" title="" class="theme-btn"><i class="fa fa-check-circle"></i>Reserver</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
