@@ -2,108 +2,92 @@
 
 namespace App\Entity;
 
+use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Reservation
- *
- * @ORM\Table(name="reservation", indexes={@ORM\Index(name="idcircuit", columns={"idcircuit"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ReservationRepository::class)
  */
 class Reservation
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="NumReservation", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $numreservation;
+    private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="DateReservation", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $datereservation;
+    private $NomPrenom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="NomAthlete", type="string", length=50, nullable=false)
+     * @ORM\Column(type="datetime")
      */
-    private $nomathlete;
+    private $DateReservation;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Tel", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $tel;
+    private $Telephone;
 
     /**
-     * @var \Circuit
-     *
-     * @ORM\ManyToOne(targetEntity="Circuit")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idcircuit", referencedColumnName="idcircuit")
-     * })
+     * @ORM\ManyToOne(targetEntity=Circuit::class, inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idcircuit;
+    private $reservation;
 
-    public function getNumreservation(): ?int
+    public function getId(): ?int
     {
-        return $this->numreservation;
+        return $this->id;
     }
 
-    public function getDatereservation(): ?string
+    public function getNomPrenom(): ?string
     {
-        return $this->datereservation;
+        return $this->NomPrenom;
     }
 
-    public function setDatereservation(string $datereservation): self
+    public function setNomPrenom(string $NomPrenom): self
     {
-        $this->datereservation = $datereservation;
+        $this->NomPrenom = $NomPrenom;
 
         return $this;
     }
 
-    public function getNomathlete(): ?string
+    public function getDateReservation(): ?\DateTimeInterface
     {
-        return $this->nomathlete;
+        return $this->DateReservation;
     }
 
-    public function setNomathlete(string $nomathlete): self
+    public function setDateReservation(\DateTimeInterface $DateReservation): self
     {
-        $this->nomathlete = $nomathlete;
+        $this->DateReservation = $DateReservation;
 
         return $this;
     }
 
-    public function getTel(): ?string
+    public function getTelephone(): ?string
     {
-        return $this->tel;
+        return $this->Telephone;
     }
 
-    public function setTel(string $tel): self
+    public function setTelephone(string $Telephone): self
     {
-        $this->tel = $tel;
+        $this->Telephone = $Telephone;
 
         return $this;
     }
 
-    public function getIdcircuit(): ?Circuit
+    public function getReservation(): ?Circuit
     {
-        return $this->idcircuit;
+        return $this->reservation;
     }
 
-    public function setIdcircuit(?Circuit $idcircuit): self
+    public function setReservation(?Circuit $reservation): self
     {
-        $this->idcircuit = $idcircuit;
+        $this->reservation = $reservation;
 
         return $this;
     }
-
-
 }

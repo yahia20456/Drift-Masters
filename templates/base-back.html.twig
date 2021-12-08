@@ -300,8 +300,7 @@
     <!-- end header -->
     <!-- start color quick setting -->
     <div class="settingSidebar">
-        <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
-        </a>
+
         <div class="settingSidebar-body ps-container ps-theme-default">
             <div class=" fade show active">
                 <div class="setting-panel-header">Setting Panel
@@ -438,26 +437,16 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="all_professors.html" class="nav-link "> <span class="title">Tous
+                                    <a href={{ path('vehicules_indexBack')}} class="nav-link "> <span class="title">Tous
 												les véhicules</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add_professor.html" class="nav-link "> <span class="title">Ajouter
-												Véhicule</span>
+
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="edit_professor.html" class="nav-link "> <span class="title">Modifier
-												Véhicule</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="professor_profile.html" class="nav-link "> <span class="title">Supprimer
-												Véhicule</span>
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -465,59 +454,34 @@
                                 <span class="title">Circuits</span><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="{{ path('listavehi') }}" class="nav-link "> <span class="title">Tous les Circuits
+                                    <a href="{{ path('circuit_index') }}" class="nav-link "> <span class="title">Tous les Circuits
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ path('listavehi') }}" class="nav-link "> <span class="title">Ajouter
-												Circuit</span>
+
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="edit_student.html" class="nav-link "> <span class="title">Modifier
-												Circuit</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="student_profile.html" class="nav-link "> <span class="title">Supprimer
-												Circuit</span>
-                                    </a>
-                                </li>
+
+
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link nav-toggle"> <i class="material-icons">school</i>
-                                <span class="title">Courses</span> <span class="arrow"></span>
-                                <span class="label label-rouded label-menu label-success">new</span>
+                                <span class="title">Reservations</span> <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="all_courses.html" class="nav-link "> <span class="title">All
-												Courses</span>
+                                    <a href="{{ path('reservation_index') }}" class="nav-link "> <span class="title">All
+												Reservations</span>
+                                    </a>
+                                    <a href="{{ path('reservation_calendar') }}" class="nav-link "> <span class="title">Calendrier des
+												Reservations</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="add_course.html" class="nav-link "> <span class="title">Add
-												Course</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="add_course_bootstrap.html" class="nav-link "> <span class="title">Add
-												Course Bootstrap</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="edit_course.html" class="nav-link "> <span class="title">Edit
-												Course</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="course_details.html" class="nav-link "> <span class="title">About
-												Course</span>
-                                    </a>
-                                </li>
+
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -1092,27 +1056,9 @@
         </div>
         <!-- end sidebar menu -->
         <!-- start page content -->
-        <div class="page-content-wrapper">
-            <div class="page-content">
-                <div class="page-bar">
-                    <div class="page-title-breadcrumb">
-                        <div class=" pull-left">
-                            <div class="page-title">Blank page</div>
-                        </div>
-                        <ol class="breadcrumb page-breadcrumb pull-right">
-                            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-                                                                   href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="active">Blank Page</li>
-                        </ol>
-                    </div>
-                    {% block Content %}
+        {% block Content %}
 
-                    {% endblock %}
-                </div>
-                <!-- add content here -->
-            </div>
-        </div>
+        {% endblock %}
         <!-- end page content -->
         <!-- start chat sidebar -->
         <div class="chat-sidebar-container" data-close-on-body-click="false">

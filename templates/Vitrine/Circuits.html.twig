@@ -44,13 +44,14 @@
                         <div class="heading text-left no-margin">
                             <h5>Circuits </h5>
                         </div>
+                        {% for circuit in circuits %}
                         <div class="rides-list">
 
                             <div class="rides-listing">
                                 <div class="rider-imag">
-                                    <img alt="" src="images/resources/rides-list-3.jpg">
+                                    <img alt="" src={{ asset('Front/images/resources/cirrr.jpg') }}>
                                     <div class="rating">
-                                        <em>James K.</em>
+                                        <em>{{ circuit.proprietairecircuit }}</em>
                                         <ul class="stars-rating">
                                             <li><i class="fa fa-star checked"></i></li>
                                             <li><i class="fa fa-star checked"></i></li>
@@ -61,18 +62,18 @@
                                     </div>
                                 </div>
                                 <div class="rides-meta">
-                                    <h4>Today at 13:40</h4>
+                                    <h4>{{ circuit.nomDuCircuit }}</h4>
                                     <span>
-                                        	<i class="fa fa-location-arrow"></i>
-                                            <em>Bristol</em>
-                                            <em>Cambridge</em>
+                                        	<i class="fa fa-calendar-o">{{ circuit.dateconstructionc }}</i>>
+                                            <em></em>
+
                                         </span>
-                                    <p>Departure: Bristol</p>
-                                    <p>Arrival: Ely Cathedral, Cambridge</p>
+                                    <p>Revetement: {{ circuit.revetement }}</p>
+                                    <p>Nombre des virages: {{ circuit.nbrevirage }}</p>
                                     <i class="fa fa-road" data-toggle="tooltip"  title="This ride goes on the freeway."></i>
                                 </div>
                                 <div class="price-tag">
-                                    <em>$20</em>
+                                    <em>{{ circuit.longeurcircuit }} km</em>
                                     <div class="availablity">
                                         <span class="avail"></span>
                                         <span class="avail"></span>
@@ -87,6 +88,11 @@
 
 
                         </div>
+                        {% else %}
+                            <tr>
+                                <td colspan="13">no records found</td>
+                            </tr>
+                        {% endfor %}
 
                     </div>
                     <div class="col-lg-4 col-md-12">

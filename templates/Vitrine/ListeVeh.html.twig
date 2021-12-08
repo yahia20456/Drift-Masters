@@ -10,8 +10,11 @@
                         </div>
                         <div class="request-list">
                             <div class="colla-table">
+
                                 <table class="table table-responsive">
+
                                     <thead>
+
                                     <tr>
                                         <th>Marque</th>
                                         <th>Modéle</th>
@@ -21,26 +24,32 @@
                                         <th>Cylindre</th>
                                     </tr>
                                     </thead>
+                                    {% for vehicule in vehicules %}
                                     <tbody>
                                     <tr>
-                                        <td>6 Oct, 2017</td>
-                                        <td>All day</td>
-                                        <td>
-                                            <a href="#" title="">Cambridge</a><a href="#" title="">Colchester</a>
-                                            <figure>
-                                                <img src="images/resources/rider-loacation.jpg" alt="">
-                                                <h6>Centenary Square in Bradford, UK</h6>
-                                            </figure>
-                                        </td>
-                                        <td>Gareth D.</td>
-                                        <td>Gareth D.</td>
-                                        <td>Gareth D.</td>
+                                        <td>{{ vehicule.marqueveh }}</td>
+                                        <td>{{ vehicule.modeleveh }}</td>
+                                        <td>{{ vehicule.couleurveh }}</td>
+
+
+                                        <td>{{ vehicule.agevehicule }}</td>
+                                        <td>{{ vehicule.puissanceveh }}</td>
+                                        <td>{{ vehicule.cylindre }}</td>
                                     </tr>
 
                                     </tbody>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="13">no records found</td>
+                                        </tr>
+                                    {% endfor %}
                                 </table>
                             </div>
                         </div>
+                    </div>
+
+
+                </div>
                     </div>
                 </div>
             </div>

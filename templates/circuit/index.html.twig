@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circuit index{% endblock %}
+
+{% block body %}
+
+    <h1>Circuit index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idcircuit</th>
+                <th>NomDuCircuit</th>
+                <th>Limitationsonore</th>
+                <th>Nbrevirage</th>
+                <th>Longeurcircuit</th>
+                <th>Largeurmin</th>
+                <th>Largeurmax</th>
+                <th>Pentecircuit</th>
+                <th>Meilleurtour</th>
+                <th>Proprietairecircuit</th>
+                <th>Revetement</th>
+                <th>Dateconstructionc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for circuit in circuits %}
+            <tr>
+                <td>{{ circuit.id }}</td>
+                <td>{{ circuit.nomDuCircuit }}</td>
+                <td>{{ circuit.limitationsonore }}</td>
+                <td>{{ circuit.nbrevirage }}</td>
+                <td>{{ circuit.longeurcircuit }}</td>
+                <td>{{ circuit.largeurmin }}</td>
+                <td>{{ circuit.largeurmax }}</td>
+                <td>{{ circuit.pentecircuit }}</td>
+                <td>{{ circuit.meilleurtour }}</td>
+                <td>{{ circuit.proprietairecircuit }}</td>
+                <td>{{ circuit.revetement }}</td>
+                <td>{{ circuit.dateconstructionc }}</td>
+                <td>
+                    <a href="{{ path('circuit_show', {'id': circuit.id}) }}">show</a>
+                    <a href="{{ path('circuit_edit', {'id': circuit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('circuit_new') }}">Create new</a>
+{% endblock %}

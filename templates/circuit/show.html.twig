@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circuit{% endblock %}
+
+{% block body %}
+    <h1>Circuit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idcircuit</th>
+                <td>{{ circuit.id }}</td>
+            </tr>
+            <tr>
+                <th>NomDuCircuit</th>
+                <td>{{ circuit.nomDuCircuit }}</td>
+            </tr>
+            <tr>
+                <th>Limitationsonore</th>
+                <td>{{ circuit.limitationsonore }}</td>
+            </tr>
+            <tr>
+                <th>Nbrevirage</th>
+                <td>{{ circuit.nbrevirage }}</td>
+            </tr>
+            <tr>
+                <th>Longeurcircuit</th>
+                <td>{{ circuit.longeurcircuit }}</td>
+            </tr>
+            <tr>
+                <th>Largeurmin</th>
+                <td>{{ circuit.largeurmin }}</td>
+            </tr>
+            <tr>
+                <th>Largeurmax</th>
+                <td>{{ circuit.largeurmax }}</td>
+            </tr>
+            <tr>
+                <th>Pentecircuit</th>
+                <td>{{ circuit.pentecircuit }}</td>
+            </tr>
+            <tr>
+                <th>Meilleurtour</th>
+                <td>{{ circuit.meilleurtour }}</td>
+            </tr>
+            <tr>
+                <th>Proprietairecircuit</th>
+                <td>{{ circuit.proprietairecircuit }}</td>
+            </tr>
+            <tr>
+                <th>Revetement</th>
+                <td>{{ circuit.revetement }}</td>
+            </tr>
+            <tr>
+                <th>Dateconstructionc</th>
+                <td>{{ circuit.dateconstructionc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('circuit_index') }}">back to list</a>
+
+    <a href="{{ path('circuit_edit', {'id': circuit.id}) }}">edit</a>
+
+    {{ include('circuit/_delete_form.html.twig') }}
+{% endblock %}

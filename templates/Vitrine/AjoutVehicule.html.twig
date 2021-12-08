@@ -29,65 +29,11 @@
 
                                     <form method="post">
                                         <div class="row">
-                                            <div class="offset-lg-3 col-lg-3">
-                                                <label>Marque :</label>
-                                                <select>
-                                                    <option>BMW</option>
-                                                    <option>Mercedes</option>
-                                                    <option>Volswagen</option>
-                                                    <option>Ford</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <label>Modele:</label>
-                                                <input type="text" value="hamza">
-                                            </div>
-                                            <div class="offset-lg-3 col-lg-3">
-                                                <label>Couleur:</label>
-                                                <select>
-                                                    <option>Noir</option>
-                                                    <option>Rouge</option>
-                                                    <option>Blanc</option>
-                                                    <option>Vert</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <label>Age:</label>
-                                                <input type="number">
-                                            </div>
-
-                                            <div class="offset-lg-3 col-lg-6">
-                                                <div class="car-style">
-                                                    <span>Style:</span>
-                                                    <ul>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-1.png') }}"><i>micro</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-1.png') }}"><i>Hatchback</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-3.png') }}"><i>Coupe</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-4.png') }}"><i>CUV</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-5.png') }}"><i>SUV</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-6.png') }}"><i>Cabriolet</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-7.png') }}"><i>Super Car</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-8.png') }}"><i>Pickup</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-9.png') }}"><i>Van</i></a></li>
-                                                        <li><a title="" href="#"><img alt="" src="{{ asset('Front/images/resources/mockup-10.png') }}"><i>Caravan</i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="offset-lg-3 col-lg-3">
-                                                <label>Puissance</label>
-                                                <input type="text">
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <label>Cylindre:</label>
-                                                <input type="number">
-                                            </div>
-                                            <div class="offset-lg-3 col-lg-6">
-
-                                            </div>
+                                    {{ include('vehicules/_form.html.twig') }}
 
                                         </div>
 
-                                        <a href="#" title="" class="theme-btn"><i class="fa fa-check-circle"></i>Ajouter</a>
+
                                     </form>
 
 

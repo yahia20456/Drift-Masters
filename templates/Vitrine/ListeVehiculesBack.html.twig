@@ -1,0 +1,124 @@
+{% extends 'base-back.html.twig' %}
+{% block Content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Liste des Vehicules</div>
+                    </div>
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                               href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a class="parent-item" href="#">Véhicules</a>&nbsp;<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">Liste des véhicules</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable-line">
+                        <ul class="nav customtab nav-tabs" role="tablist">
+                            <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">List
+                                    View</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active fontawesome-demo" id="tab1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-box">
+                                            <div class="card-head">
+                                                <header>Tous les véhicules</header>
+                                                <div class="tools">
+                                                    <a class="fa fa-repeat btn-color box-refresh"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-collapse btn-color fa fa-chevron-down"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-close btn-color fa fa-times"
+                                                       href="javascript:;"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body ">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-6">
+                                                        <div class="btn-group">
+                                                            <a href="{{ path('vehicules_new') }}" id="addRow"
+                                                               class="btn btn-info">
+                                                                Ajouter  <i class="fa fa-plus"></i>
+                                                            </a>
+                                                            <a href="{{ path('vehicules_Id') }}" id="addRow"
+                                                               class="btn btn-info"> Trier Par Id <i class="fa fa-plus"></i>
+                                                            </a>
+                                                            <a href="{{ path('vehicules_puissance') }}" id="addRow"
+                                                               class="btn btn-info">
+                                                                Trier par puissance <i class="fa fa-plus"></i>
+                                                            </a>
+                                                            <a href="{{ path('vehicules_List') }}" id="addRow"
+                                                               class="btn btn-info">
+                                                                Imprimer <i class="fa fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="table-scrollable">
+                                                    <table
+                                                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                                            id="example4">
+                                                        <thead>
+                                                        <tr>
+
+                                                            <th> Id </th>
+                                                            <th> Marque </th>
+                                                            <th> Modele </th>
+                                                            <th> Couleur </th>
+                                                            <th> Age </th>
+                                                            <th> Puissance</th>
+                                                            <th> Cylindre</th>
+                                                            <th> Action </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for vehicule in vehicules %}
+                                                        <tr class="odd gradeX">
+
+                                                            <td class="left">{{ vehicule.idvehicule }}</td>
+                                                            <td>{{ vehicule.marqueveh }}</td>
+                                                            <td class="left">{{ vehicule.modeleveh }}</td>
+                                                            <td>{{ vehicule.couleurveh }}</td>
+                                                            <td>{{ vehicule.agevehicule }}</td>
+                                                            <td class="left">{{ vehicule.puissanceveh }}</td>
+                                                            <td class="left">{{ vehicule.cylindre }}</td>
+                                                            <td>
+                                                                <a href="{{ path('vehicules_edit',{'idvehicule':vehicule.idvehicule}) }}"
+                                                                   class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                                <form method="post" action="{{ path('vehicules_delete', {'idvehicule': vehicule.idvehicule}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vehicule.idvehicule) }}">
+                                                                    <button class="btn btn-danger btn-xs">
+                                                                        <i class="fa fa-trash-o "></i>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr {% endfor %}>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

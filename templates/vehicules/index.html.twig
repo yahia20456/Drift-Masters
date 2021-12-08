@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicule index{% endblock %}
+
+{% block body %}
+    <h1>Vehicule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idvehicule</th>
+                <th>Marqueveh</th>
+                <th>Modeleveh</th>
+                <th>Couleurveh</th>
+                <th>Agevehicule</th>
+                <th>Puissanceveh</th>
+                <th>Cylindre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.idvehicule }}</td>
+                <td>{{ vehicule.marqueveh }}</td>
+                <td>{{ vehicule.modeleveh }}</td>
+                <td>{{ vehicule.couleurveh }}</td>
+                <td>{{ vehicule.agevehicule }}</td>
+                <td>{{ vehicule.puissanceveh }}</td>
+                <td>{{ vehicule.cylindre }}</td>
+                <td>
+                    <a href="{{ path('vehicules_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
+                    <a href="{{ path('vehicules_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vehicules_new') }}">Create new</a>
+{% endblock %}

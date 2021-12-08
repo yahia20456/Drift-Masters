@@ -1,0 +1,36 @@
+
+
+{% block body %}
+    <h1 align="center">Liste des véhicules</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id vehicule</th>
+            <th>Marque</th>
+            <th>Modele</th>
+            <th>Couleur</th>
+            <th>Age</th>
+            <th>Puissance</th>
+            <th>Cylindre</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.idvehicule }}</td>
+                <td>{{ vehicule.marqueveh }}</td>
+                <td>{{ vehicule.modeleveh }}</td>
+                <td>{{ vehicule.couleurveh }}</td>
+                <td>{{ vehicule.agevehicule }}</td>
+                <td>{{ vehicule.puissanceveh }}</td>
+                <td>{{ vehicule.cylindre }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

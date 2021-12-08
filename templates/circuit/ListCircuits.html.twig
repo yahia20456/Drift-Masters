@@ -1,0 +1,47 @@
+
+
+{% block body %}
+    <h1 align="center">Liste des Circuits</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Idcircuit</th>
+            <th>NomDuCircuit</th>
+            <th>Limitationsonore</th>
+            <th>Nbrevirage</th>
+            <th>Longeurcircuit</th>
+            <th>Largeurmin</th>
+            <th>Largeurmax</th>
+            <th>Pentecircuit</th>
+            <th>Meilleurtour</th>
+            <th>Proprietairecircuit</th>
+            <th>Revetement</th>
+            <th>Dateconstructionc</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for circuit in circuits %}
+            <tr>
+                <td>{{ circuit.id }}</td>
+                <td>{{ circuit.nomDuCircuit }}</td>
+                <td>{{ circuit.limitationsonore }}</td>
+                <td>{{ circuit.nbrevirage }}</td>
+                <td>{{ circuit.longeurcircuit }}</td>
+                <td>{{ circuit.largeurmin }}</td>
+                <td>{{ circuit.largeurmax }}</td>
+                <td>{{ circuit.pentecircuit }}</td>
+                <td>{{ circuit.meilleurtour }}</td>
+                <td>{{ circuit.proprietairecircuit }}</td>
+                <td>{{ circuit.revetement }}</td>
+                <td>{{ circuit.dateconstructionc }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

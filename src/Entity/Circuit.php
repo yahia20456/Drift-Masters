@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,11 +17,11 @@ class Circuit
     /**
      * @var int
      *
-     * @ORM\Column(name="idcircuit", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcircuit;
+    private $id;
 
     /**
      * @var string
@@ -98,9 +100,20 @@ class Circuit
      */
     private $dateconstructionc;
 
-    public function getIdcircuit(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="reservation", orphanRemoval=true)
+     */
+    private $reservations;
+
+    public function __construct()
     {
-        return $this->idcircuit;
+        $this->reservations = new ArrayCollection();
+    }
+
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNomDuCircuit(): ?string
@@ -234,6 +247,45 @@ class Circuit
 
         return $this;
     }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getReservation() === $this) {
+                $reservation->setReservation(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return(string)$this->getNomDuCircuit();
+    }
+
+
+
+
+
 
 
 }
